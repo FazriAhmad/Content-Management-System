@@ -43,6 +43,7 @@
                 ['admin.agenda.index', 'fi-rr-calendar', 'Agenda'],
                 ['admin.jurusan.index', 'fi-rr-graduation-cap', 'Jurusan'],
                 ['admin.pendidik.index', 'fi-rr-users', 'Pendidik'],
+                ['admin.alumni.index', 'fi-rr-map-marker', 'Alumni'],
                 ['admin.fasilitas.index', 'fi-rr-building', 'Fasilitas'],
             ] as [$route, $icon, $label])
                 @php $active = request()->routeIs($route) || request()->routeIs(str($route)->before('.index').'.*'); @endphp

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Agenda;
+use App\Models\Alumni;
 use App\Models\Fasilitas;
 use App\Models\Jurusan;
 use App\Models\Pendidik;
@@ -78,6 +79,22 @@ class DatabaseSeeder extends Seeder
         ];
         foreach ($agendaList as $a) {
             Agenda::create($a);
+        }
+
+        $jurusanId = fn (string $singkatan) => Jurusan::where('singkatan', $singkatan)->value('id');
+
+        $alumniList = [
+            ['nama' => 'Rangga Saputra', 'tahun_lulus' => 2020, 'jurusan_id' => $jurusanId('TKJ'), 'pekerjaan' => 'Network Engineer', 'perusahaan' => 'PT Jaringan Nusantara', 'kota' => 'Jakarta', 'lat' => -6.2088, 'lng' => 106.8456],
+            ['nama' => 'Melati Anggraini', 'tahun_lulus' => 2021, 'jurusan_id' => $jurusanId('RPL'), 'pekerjaan' => 'Frontend Developer', 'perusahaan' => 'PT Digital Kreasi Bangsa', 'kota' => 'Bandung', 'lat' => -6.9175, 'lng' => 107.6191],
+            ['nama' => 'Fajar Nugroho', 'tahun_lulus' => 2019, 'jurusan_id' => $jurusanId('TKR'), 'pekerjaan' => 'Mekanik Senior', 'perusahaan' => 'Bengkel Mitra Otomotif', 'kota' => 'Surabaya', 'lat' => -7.2575, 'lng' => 112.7521],
+            ['nama' => 'Intan Permatasari', 'tahun_lulus' => 2022, 'jurusan_id' => $jurusanId('MP'), 'pekerjaan' => 'Staff Administrasi', 'perusahaan' => 'PT Cipta Karya Sejahtera', 'kota' => 'Yogyakarta', 'lat' => -7.7956, 'lng' => 110.3695],
+            ['nama' => 'Bayu Prasetyo', 'tahun_lulus' => 2018, 'jurusan_id' => $jurusanId('TKN'), 'pekerjaan' => 'Mualim Kapal Niaga', 'perusahaan' => 'PT Pelayaran Samudra Timur', 'kota' => 'Makassar', 'lat' => -5.1477, 'lng' => 119.4327],
+            ['nama' => 'Citra Wulandari', 'tahun_lulus' => 2021, 'jurusan_id' => $jurusanId('AKL'), 'pekerjaan' => 'Staff Akuntansi', 'perusahaan' => 'PT Keuangan Abadi', 'kota' => 'Medan', 'lat' => 3.5952, 'lng' => 98.6722],
+            ['nama' => 'Dimas Ardiansyah', 'tahun_lulus' => 2023, 'jurusan_id' => $jurusanId('RPL'), 'pekerjaan' => 'Mobile Developer', 'perusahaan' => 'PT Aplikasi Anak Bangsa', 'kota' => 'Denpasar', 'lat' => -8.6705, 'lng' => 115.2126],
+            ['nama' => 'Sarah Amelia', 'tahun_lulus' => 2020, 'jurusan_id' => $jurusanId('TKJ'), 'pekerjaan' => 'IT Support', 'perusahaan' => 'PT Solusi Teknologi Kalimantan', 'kota' => 'Balikpapan', 'lat' => -1.2379, 'lng' => 116.8529],
+        ];
+        foreach ($alumniList as $a) {
+            Alumni::create($a);
         }
     }
 }

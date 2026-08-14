@@ -57,7 +57,7 @@
             </a>
 
             <nav class="hidden items-center gap-1 lg:flex">
-                @foreach ([['home','Beranda'],['visi-misi','Visi & Misi'],['jurusan.index','Jurusan'],['pendidik.index','Pendidik'],['fasilitas.index','Fasilitas'],['pengumuman.index','Pengumuman'],['agenda.index','Agenda'],['kontak','Kontak']] as [$r, $label])
+                @foreach ([['home','Beranda'],['visi-misi','Visi & Misi'],['jurusan.index','Jurusan'],['pendidik.index','Pendidik'],['fasilitas.index','Fasilitas'],['alumni.index','Alumni'],['pengumuman.index','Pengumuman'],['agenda.index','Agenda'],['kontak','Kontak']] as [$r, $label])
                     <a href="{{ route($r) }}" class="rounded-full px-3.5 py-2 text-sm font-medium transition {{ request()->routeIs($r) || request()->routeIs($r.'.*') ? 'bg-teal text-paper' : 'text-ink/80 hover:bg-cream hover:text-ink' }}">{{ $label }}</a>
                 @endforeach
             </nav>
@@ -70,7 +70,7 @@
         </div>
         <div id="mobileNav" class="hidden border-t border-line/70 bg-paper lg:hidden">
             <div class="flex flex-col gap-1 px-5 py-4">
-                @foreach ([['home','Beranda'],['visi-misi','Visi & Misi'],['jurusan.index','Jurusan'],['pendidik.index','Pendidik'],['fasilitas.index','Fasilitas'],['pengumuman.index','Pengumuman'],['agenda.index','Agenda'],['kontak','Kontak']] as [$r, $label])
+                @foreach ([['home','Beranda'],['visi-misi','Visi & Misi'],['jurusan.index','Jurusan'],['pendidik.index','Pendidik'],['fasilitas.index','Fasilitas'],['alumni.index','Alumni'],['pengumuman.index','Pengumuman'],['agenda.index','Agenda'],['kontak','Kontak']] as [$r, $label])
                     <a href="{{ route($r) }}" class="rounded-xl px-3 py-2.5 text-sm font-medium {{ request()->routeIs($r) || request()->routeIs($r.'.*') ? 'bg-teal text-paper' : 'text-ink hover:bg-cream' }}">{{ $label }}</a>
                 @endforeach
             </div>
@@ -109,6 +109,7 @@
                     <li><a href="{{ route('jurusan.index') }}" class="transition hover:text-gold">Program Keahlian</a></li>
                     <li><a href="{{ route('pendidik.index') }}" class="transition hover:text-gold">Pendidik</a></li>
                     <li><a href="{{ route('fasilitas.index') }}" class="transition hover:text-gold">Fasilitas</a></li>
+                    <li><a href="{{ route('alumni.index') }}" class="transition hover:text-gold">Sebaran Alumni</a></li>
                     <li><a href="{{ route('pengumuman.index') }}" class="transition hover:text-gold">Pengumuman</a></li>
                     <li><a href="{{ route('agenda.index') }}" class="transition hover:text-gold">Agenda</a></li>
                 </ul>

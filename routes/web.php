@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AgendaController;
+use App\Http\Controllers\Admin\AlumniController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FasilitasController;
 use App\Http\Controllers\Admin\JurusanController;
@@ -21,6 +22,7 @@ Route::get('/jurusan/{jurusan}', [PublicController::class, 'jurusanShow'])->name
 Route::get('/pendidik', [PublicController::class, 'pendidik'])->name('pendidik.index');
 Route::get('/visi-misi', [PublicController::class, 'visiMisi'])->name('visi-misi');
 Route::get('/kontak', [PublicController::class, 'kontak'])->name('kontak');
+Route::get('/alumni', [PublicController::class, 'alumni'])->name('alumni.index');
 
 // Auth
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -36,4 +38,5 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('jurusan', JurusanController::class)->except('show');
     Route::delete('jurusan-gambar/{gambar}', [JurusanController::class, 'destroyGambar'])->name('jurusan.gambar.destroy');
     Route::resource('pendidik', PendidikController::class)->except('show');
+    Route::resource('alumni', AlumniController::class)->except('show');
 });

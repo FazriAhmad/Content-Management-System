@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agenda;
+use App\Models\Alumni;
 use App\Models\Fasilitas;
 use App\Models\Jurusan;
 use App\Models\Pendidik;
@@ -74,5 +75,24 @@ class PublicController extends Controller
     public function kontak()
     {
         return view('public.kontak');
+    }
+
+    public function alumni()
+    {
+        $alumni = Alumni::with('jurusan')->orderBy('tahun_lulus', 'desc')->get();
+
+        return view('public.alumni.index', [
+            'alumni' => $alumni,
+            'points' => $alumni->map(fn ($a) => [
+                'nama' => $a->nama,
+                'tahun_lulus' => $a->tahun_lulus,
+                'jurusan' => $a->jurusan?->singkatan ?? $a->jurusan?->nama,
+                'pekerjaan' => $a->pekerjaan,
+                'perusahaan' => $a->perusahaan,
+                'kota' => $a->kota,
+                'lat' => (float) $a->lat,
+                'lng' => (float) $a->lng,
+            ]),
+        ]);
     }
 }
